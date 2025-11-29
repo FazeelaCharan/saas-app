@@ -5,13 +5,21 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted 
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout code
+      # Step 1: Checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: List project files
-        run: |
-          echo "Listing working directory:"
-          ls
+      # Step 2: Show current working directory
+      - name: Show working dir
+        run: echo "Current dir: $PWD"
+
+      # Step 3: List files
+      - name: List files
+        run: dir
+
+      # Step 4: Simple test
+      - name: Test echo
+        run: echo "Runner is working!"
